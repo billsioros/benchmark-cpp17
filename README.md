@@ -4,7 +4,7 @@
 ## Quick Example
 
 ```cpp
-auto [ms, sum] = utility::benchmark
+auto [ms, sum] = massiva::benchmark
 (
     [](std::size_t iterations)
     {

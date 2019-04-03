@@ -12,7 +12,7 @@
 
 int main()
 {
-    auto [ms, sum] = utility::benchmark
+    auto [ms, sum] = massiva::benchmark
     (
         [](std::size_t iterations)
         {
@@ -36,7 +36,7 @@ int main()
     << " [" << std::fixed << ms << " microseconds elapsed] "
     << std::endl;
 
-    ms = utility::benchmark
+    ms = massiva::benchmark
     (
         []()
         {
