@@ -1,5 +1,5 @@
 
-# Header only C++17 benchmarking utilities
+# Header only C++17 benchmarking
 
 ## Quick Example
 
