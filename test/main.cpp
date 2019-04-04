@@ -29,8 +29,7 @@ int main()
         ITERATIONS
     );
 
-
-    std::printf("{ %08.4lf ms } After %lu iterations ln(2) is approximately %.12lf\n", ms, ITERATIONS, sum);
+    std::printf("{ %08.4lf ms } The partial sum of the first %lu terms is %.12lf\n", ms, ITERATIONS, sum);
 
     ms = massiva::benchmark
     (
