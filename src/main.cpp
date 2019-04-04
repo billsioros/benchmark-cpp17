@@ -37,7 +37,7 @@ double alternating_harmonic_series()
 {
     double sum = 0.0;
 
-    for (std::size_t i = 1UL; i < ITERATIONS; i++)
+    for (std::size_t i = 1UL; i < ITERATIONS + 1UL; i++)
     {
         if (i % 2UL)
             sum += 1.0 / static_cast<double>(i);
