@@ -22,12 +22,11 @@ auto [ms, sum] = massiva::benchmark
     ITERATIONS
 );
 
-std::cout
-<< "The approximation of ln(2) in " << ITERATIONS
-<< " iterations is equal to " << sum
-<< " [" << std::fixed << ms << " microseconds elapsed] "
-<< std::endl;
+
+std::printf("{ %010.6lf milliseconds } After %lu iterations ln(2) is approximately %.12lf\n", ms, ITERATIONS, sum);
 ```
+
+    { 828.788000 milliseconds } After 100000000 iterations ln(2) is approximately 0.693147185560
 
 ## License
 

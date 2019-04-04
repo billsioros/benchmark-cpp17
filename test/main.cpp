@@ -1,6 +1,5 @@
 
 #include <benchmark.hpp>
-#include <iostream>
 #include <random>
 #include <functional>
 
@@ -30,11 +29,8 @@ int main()
         ITERATIONS
     );
 
-    std::cout
-    << "The approximation of ln(2) in " << ITERATIONS
-    << " iterations is equal to " << sum
-    << " [" << std::fixed << ms << " microseconds elapsed] "
-    << std::endl;
+
+    std::printf("{ %010.6lf milliseconds } After %lu iterations ln(2) is approximately %.12lf\n", ms, ITERATIONS, sum);
 
     ms = massiva::benchmark
     (
@@ -54,11 +50,7 @@ int main()
         }
     );
 
-    std::cout
-    << "Sorted " << SIZE
-    << " values in the range [" << MIN << ", " << MAX << "]"
-    << " [" << std::fixed << ms << " microseconds elapsed] "
-    << std::endl;
+    std::printf("{ %010.6lf milliseconds } Sorted %lu values in the range [%+.2lf, %+.2lf]\n", ms, SIZE, MIN, MAX);
 
     return 0;
 }
