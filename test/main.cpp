@@ -30,7 +30,7 @@ int main()
     );
 
 
-    std::printf("{ %010.6lf milliseconds } After %lu iterations ln(2) is approximately %.12lf\n", ms, ITERATIONS, sum);
+    std::printf("{ %08.4lf ms } After %lu iterations ln(2) is approximately %.12lf\n", ms, ITERATIONS, sum);
 
     ms = massiva::benchmark
     (
@@ -50,7 +50,7 @@ int main()
         }
     );
 
-    std::printf("{ %010.6lf milliseconds } Sorted %lu values in the range [%+.2lf, %+.2lf]\n", ms, SIZE, MIN, MAX);
+    std::printf("{ %08.4lf ms } Sorted %lu values in the range [%+.2lf, %+.2lf]\n", ms, SIZE, MIN, MAX);
 
     return 0;
 }

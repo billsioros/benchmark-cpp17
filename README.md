@@ -23,10 +23,10 @@ auto [ms, sum] = massiva::benchmark
 );
 
 
-std::printf("{ %010.6lf milliseconds } After %lu iterations ln(2) is approximately %.12lf\n", ms, ITERATIONS, sum);
+std::printf("{ %08.4lf ms } Sorted %lu values in the range [%+.2lf, %+.2lf]\n", ms, SIZE, MIN, MAX);
 ```
 
-    { 828.788000 milliseconds } After 100000000 iterations ln(2) is approximately 0.693147185560
+    { 827.9960 ms } After 100000000 iterations ln(2) is approximately 0.693147185560
 
 ## License
 
