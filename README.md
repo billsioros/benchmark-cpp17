@@ -1,7 +1,7 @@
 
 # Header only C++17 benchmarking
 
-## __C function returning non void__
+## __C style function returning non void__
 
 ```cpp
 double alternating_harmonic_series()
