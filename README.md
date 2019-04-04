@@ -22,7 +22,6 @@ double alternating_harmonic_series()
 auto [ms, sum] = massiva::benchmark(alternating_harmonic_series);
 
 std::printf("{ %9.4lf ms } The partial sum of the first %lu terms is %7.6lf\n", ms, ITERATIONS, sum);
-}
 ```
 
     {  840.1860 ms } The partial sum of the first 100000000 terms is 0.693147
