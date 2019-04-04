@@ -1,5 +1,5 @@
 
-#include <benchmark.hpp>
+#include <benchmark/benchmark.hpp>
 #include <random>
 #include <functional>
 
