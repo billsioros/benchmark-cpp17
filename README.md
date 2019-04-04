@@ -1,58 +1,55 @@
 
 # Header only C++17 benchmarking
 
-## Non void return type
+## __C function returning non void__
 
 ```cpp
-auto [ms, sum] = massiva::benchmark
-(
-    [](std::size_t iterations)
+double alternating_harmonic_series()
+{
+    double sum = 0.0;
+
+    for (std::size_t i = 1UL; i < ITERATIONS; i++)
     {
-        double sum = 0.0f;
-        for (std::size_t i = 1UL; i < iterations; i++)
-        {
-            if (i % 2UL)
-                sum += 1.0f / static_cast<double>(i);
-            else
-                sum -= 1.0f / static_cast<double>(i);
-        }
-
-        return sum;
-    },
-    ITERATIONS
-);
-
-
-std::printf("{ %08.4lf ms } The partial sum of the first %lu terms is %.12lf\n", ms, ITERATIONS, sum);
-```
-
-    { 821.4230 ms } The partial sum of the first 100000000 terms is 0.693147185560
-
-## Void return type
-
-```cpp
-ms = massiva::benchmark
-(
-    []()
-    {
-        auto engine = std::bind
-        (
-            std::uniform_real_distribution<double>(MIN, MAX),
-            std::default_random_engine(std::chrono::system_clock::now().time_since_epoch().count())
-        );
-
-        double values[SIZE];
-        for (std::size_t i = 0UL; i < SIZE; i++)
-            values[i] = engine();
-
-        std::sort(std::begin(values), std::end(values));
+        if (i % 2UL)
+            sum += 1.0 / static_cast<double>(i);
+        else
+            sum -= 1.0 / static_cast<double>(i);
     }
-);
 
-std::printf("{ %08.4lf ms } Sorted %lu values in the range [%+.2lf, %+.2lf]\n", ms, SIZE, MIN, MAX);
+    return sum;
+}
+
+auto [ms, sum] = massiva::benchmark(alternating_harmonic_series);
+
+std::printf("{ %9.4lf ms } The partial sum of the first %lu terms is %7.6lf\n", ms, ITERATIONS, sum);
+}
 ```
 
-    { 003.4680 ms } Sorted 10000 values in the range [+0.00, +1000.00]
+    {  840.1860 ms } The partial sum of the first 100000000 terms is 0.693147
+
+## __Callable object returning void__
+
+```cpp
+auto madhava_leibniz_series = [](double& sum) -> void
+{
+    sum = 0.0;
+
+    for (std::size_t i = 0UL; i < ITERATIONS; i++)
+    {
+        if (i % 2UL)
+            sum -= 4.0 / (2.0 * static_cast<double>(i) + 1.0);
+        else
+            sum += 4.0 / (2.0 * static_cast<double>(i) + 1.0);
+    }
+};
+
+ms = massiva::benchmark(madhava_leibniz_series, sum);
+
+std::printf("{ %9.4lf ms } The partial sum of the first %lu terms is %7.6lf\n", ms, ITERATIONS, sum);
+
+```
+
+    { 1154.4230 ms } The partial sum of the first 100000000 terms is 3.141593
 
 ## License
 
