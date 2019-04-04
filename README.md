@@ -1,7 +1,7 @@
 
 # Header only C++17 benchmarking
 
-## Example #1 (Non void return type)
+## Non void return type
 
 ```cpp
 auto [ms, sum] = massiva::benchmark
@@ -28,7 +28,7 @@ std::printf("{ %08.4lf ms } The partial sum of the first %lu terms is %.12lf\n",
 
     { 821.4230 ms } The partial sum of the first 100000000 terms is 0.693147185560
 
-## Example #2 (Void return type)
+## Void return type
 
 ```cpp
 ms = massiva::benchmark
