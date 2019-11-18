@@ -29,8 +29,6 @@ std::printf("{ %9.4lf ms } The partial sum of the first %lu terms is %7.6lf\n", 
 ## __Callable object returning void__
 
 ```cpp
-double sum;
-
 auto madhava_leibniz_series = [](double& sum) -> void
 {
     sum = 0.0;
@@ -43,6 +41,8 @@ auto madhava_leibniz_series = [](double& sum) -> void
             sum += 4.0 / (2.0 * static_cast<double>(i) + 1.0);
     }
 };
+
+double sum;
 
 auto ms = massiva::benchmark(madhava_leibniz_series, sum);
 
