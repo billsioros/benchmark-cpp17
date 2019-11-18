@@ -42,7 +42,7 @@ auto madhava_leibniz_series = [](double& sum) -> void
     }
 };
 
-ms = massiva::benchmark(madhava_leibniz_series, sum);
+auto ms = massiva::benchmark(madhava_leibniz_series, sum);
 
 std::printf("{ %9.4lf ms } The partial sum of the first %lu terms is %7.6lf\n", ms, ITERATIONS, sum);
 
