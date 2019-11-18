@@ -29,6 +29,8 @@ std::printf("{ %9.4lf ms } The partial sum of the first %lu terms is %7.6lf\n", 
 ## __Callable object returning void__
 
 ```cpp
+double sum;
+
 auto madhava_leibniz_series = [](double& sum) -> void
 {
     sum = 0.0;
